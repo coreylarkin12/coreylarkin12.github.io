@@ -1,0 +1,165 @@
+﻿@{
+    ViewBag.Title = "Plan Details";
+
+}
+@using Capstone.Models;
+
+@model List<MealPlan>
+
+<h2 class="title">My Plan Details</h2>
+<br />
+
+@if (Session["userID"] != null)
+{
+    <div class="mealPlanDetailsContainer">
+        <h4>Monday</h4>
+        @foreach (MealPlan mealNum in Model)
+        {
+
+            if (mealNum.GetDays().ToString() == "Monday")
+            {
+                <ul>
+                    <li>
+                        <div class="col-xs-1">
+                            @mealNum.GetMealNumber().ToString():
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="@Url.Action("RecipeDetail", "Recipe", new { id = mealNum.RecipeId})" class="meal-plan-recipe-name"><span>@mealNum.RecipeName</span></a>
+                        </div>
+                        <div class="col-xs-1">
+                            <button class="btn btn-default btn-xs meal-plan-delete-button">@Html.ActionLink("X", "DeleteMealFromPlan", "MealPlan", new { id = mealNum.MealPlanIndex, mealPlanId = mealNum.MealPlanId }, null)</button>
+                        </div>
+                    </li>
+                </ul>
+            }
+        }
+        <h4>Tuesday</h4>
+        @foreach (MealPlan mealNum in Model)
+        {
+            if (mealNum.GetDays().ToString() == "Tuesday")
+            {
+                <ul>
+                    <li>
+                        <div class="col-xs-1">
+                            @mealNum.GetMealNumber().ToString():
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="@Url.Action("RecipeDetail", "Recipe", new { id = mealNum.RecipeId})" class="meal-plan-recipe-name"><span>@mealNum.RecipeName</span></a>
+                        </div>
+                        <div class="col-xs-1">
+                            <button class="btn btn-default btn-xs meal-plan-delete-button">@Html.ActionLink("X", "DeleteMealFromPlan", "MealPlan", new { id = mealNum.MealPlanIndex, mealPlanId = mealNum.MealPlanId }, null)</button>
+                        </div>
+                </ul>
+            }
+        }
+        <h4>Wednesday</h4>
+        @foreach (MealPlan mealNum in Model)
+        {
+            if (mealNum.GetDays().ToString() == "Wednesday")
+            {
+                <ul>
+                    <li>
+                        <div class="col-xs-1">
+                            @mealNum.GetMealNumber().ToString():
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="@Url.Action("RecipeDetail", "Recipe", new { id = mealNum.RecipeId})" class="meal-plan-recipe-name"><span>@mealNum.RecipeName</span></a>
+                        </div>
+                        <div class="col-xs-1">
+                            <button class="btn btn-default btn-xs meal-plan-delete-button">@Html.ActionLink("X", "DeleteMealFromPlan", "MealPlan", new { id = mealNum.MealPlanIndex, mealPlanId = mealNum.MealPlanId }, null)</button>
+                        </div>
+                    </li>
+                </ul>
+            }
+        }
+        <h4>Thursday</h4>
+        @foreach (MealPlan mealNum in Model)
+        {
+            if (mealNum.GetDays().ToString() == "Thursday")
+            {
+                <ul>
+                    <li>
+                        <div class="col-xs-1">
+                            @mealNum.GetMealNumber().ToString():
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="@Url.Action("RecipeDetail", "Recipe", new { id = mealNum.RecipeId})" class="meal-plan-recipe-name"><span>@mealNum.RecipeName</span></a>
+                        </div>
+                        <div class="col-xs-1">
+                            <button class="btn btn-default btn-xs meal-plan-delete-button">@Html.ActionLink("X", "DeleteMealFromPlan", "MealPlan", new { id = mealNum.MealPlanIndex, mealPlanId = mealNum.MealPlanId }, null)</button>
+                        </div>
+                    </li>
+                </ul>
+            }
+        }
+        <h4>Friday</h4>
+        @foreach (MealPlan mealNum in Model)
+        {
+            if (mealNum.GetDays().ToString() == "Friday")
+            {
+                <ul>
+                    <li>
+                        <div class="col-xs-1">
+                            @mealNum.GetMealNumber().ToString():
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="@Url.Action("RecipeDetail", "Recipe", new { id = mealNum.RecipeId})" class="meal-plan-recipe-name"><span>@mealNum.RecipeName</span></a>
+                        </div>
+                        <div class="col-xs-1">
+                            <button class="btn btn-default btn-xs meal-plan-delete-button">@Html.ActionLink("X", "DeleteMealFromPlan", "MealPlan", new { id = mealNum.MealPlanIndex, mealPlanId = mealNum.MealPlanId }, null)</button>
+                        </div>
+                    </li>
+                </ul>
+            }
+        }
+        <h4>Saturday</h4>
+        @foreach (MealPlan mealNum in Model)
+        {
+            if (mealNum.GetDays().ToString() == "Saturday")
+            {
+                <ul>
+                    <li>
+                        <div class="col-xs-1">
+                            @mealNum.GetMealNumber().ToString():
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="@Url.Action("RecipeDetail", "Recipe", new { id = mealNum.RecipeId})" class="meal-plan-recipe-name"><span>@mealNum.RecipeName</span></a>
+                        </div>
+                        <div class="col-xs-1">
+                            <button class="btn btn-default btn-xs meal-plan-delete-button">@Html.ActionLink("X", "DeleteMealFromPlan", "MealPlan", new { id = mealNum.MealPlanIndex, mealPlanId = mealNum.MealPlanId }, null)</button>
+                        </div>
+                    </li>
+                </ul>
+            }
+        }
+        <h4>Sunday</h4>
+        @foreach (MealPlan mealNum in Model)
+        {
+            if (mealNum.GetDays().ToString() == "Sunday")
+            {
+                <ul>
+                    <li>
+                        <div class="col-xs-1">
+                            @mealNum.GetMealNumber().ToString():
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="@Url.Action("RecipeDetail", "Recipe", new { id = mealNum.RecipeId})" class="meal-plan-recipe-name"><span>@mealNum.RecipeName</span></a>
+                        </div>
+                        <div class="col-xs-1">
+                            <button class="btn btn-default btn-xs meal-plan-delete-button">@Html.ActionLink("X", "DeleteMealFromPlan", "MealPlan", new { id = mealNum.MealPlanIndex, mealPlanId = mealNum.MealPlanId }, null)</button>
+                        </div>
+                    </li>
+                </ul>
+            }
+        }
+    </div>
+}
+
+
+
+<br />
+<input type="button" value="Add Meal to Plan" id="editMealPlan" class="btn btn-default" onclick="location.href='@Url.Action("EditPlan", "MealPlan", new { id = ViewBag.item })'" />
+@if (Model.Count > 0)
+{
+    <input type="button" value="Grocery List" id="groceryList" class="btn btn-default" onclick="location.href='@Url.Action("GroceryList", "MealPlan", new { id = Model[0].MealPlanId })'" />
+}

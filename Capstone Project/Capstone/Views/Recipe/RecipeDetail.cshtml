@@ -1,0 +1,54 @@
+﻿@using Capstone.Models;
+@using Capstone.DAL;
+
+@model RecipeModel
+
+@{
+    ViewBag.Title = "RecipeDetail";
+    UserLibrariesDAL library = new UserLibrariesDAL(@"Data Source=localhost\sqlexpress;Initial Catalog=MealPlanning;Integrated Security=True");
+}
+@if (Session["userID"] == null)
+{
+    <input type="button" value="Sign up" id="addToLibrary" class="btn btn-default" onclick="location.href='@Url.Action("SignUp", "Home", Model)'" />
+    <input type="button" value="Login" id="addToLibrary" class="btn btn-default" onclick="location.href='@Url.Action("LogIn", "Home", Model)'" />
+}
+
+
+<h2 class="title">@Model.Name</h2>
+
+<div>
+    <p><strong>Description: </strong>@Model.Description</p>
+    <p>
+        <strong>Ingredients: </strong>
+
+        @for (int i = 0; i < Model.Ingredients.Count; i++)
+        {
+            <ul>
+                <li><strong>@Model.Amount[i]</strong> @Model.Ingredients[i]</li>
+            </ul>
+        }
+    </p>
+    <div>
+        <p><strong>Preparation: <br /></strong>
+            @{
+                string preparation = Model.Preparation;
+                preparation = preparation.Replace(Environment.NewLine, "<br />");
+            }
+        @Html.Raw(preparation)
+        </p>
+    </div>
+
+    @if (Session["userID"] != null)
+    {
+        if (library.UserLibaryContainsRecipe(Model.Recipe_Id, int.Parse(Session["userID"].ToString())))
+        {
+            <input type="button" value="Edit this Recipe" class="btn btn-default" onclick="location.href='@Url.Action("EditRecipe", "Recipe", new { id = @Model.Recipe_Id })'" />
+            <input type="button" value="Delete from My Library" id="addToLibrary" class="btn btn-default" onclick="location.href='@Url.Action("DelRecFrmLib", "Recipe", Model)'" />
+        }
+        else
+        {
+            <input type="button" value="Add to My Library" id="addToLibrary" class="btn btn-default" onclick="location.href='@Url.Action("CheckLoggedIn", "Recipe", Model)'" />
+        }
+        <input type="button" value="Print Recipe" class="btn btn-default" onclick="window.print(); return false;" />
+    }
+</div>

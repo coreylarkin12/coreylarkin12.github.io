@@ -1,0 +1,217 @@
+﻿body {
+    padding-top: 90px;
+    padding-bottom: 20px;
+    background-color: #f8f2ec;
+    font-family: Verdana;
+}
+
+ /*Set padding to keep content from hitting the edges*/ 
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column */
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+.navbar {
+    background-color: #383838;
+}
+
+.navbar li a {
+    font-size: 20px;
+    line-height: 45px;
+    font-family: Verdana;
+}
+
+
+#navbar-brand {
+    font-size: 36px;
+    color: #DCDCDC;
+    line-height: 75px;
+    margin-right: 20px;
+    font-family: Verdana;
+}
+
+
+/* Set width on the form input elements since they're 100% wide by default 
+input,
+select,
+/*textarea {
+    max-width: 280px;
+}*/
+.recipe-image-container{
+    width: 20%
+
+}
+
+.recipe-image {
+    width: 100%
+}
+
+.recipe-info{
+    display: inline;
+}
+
+#add-recipe-title {
+    margin-top: 0px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+#add-recipe-name{
+    padding-bottom: 10px;
+}
+
+#add-recipe-prep{
+    margin-top: -15px;
+}
+
+#add {
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+.added-ingred{
+    margin-top: 7px;
+}
+
+#add-recipe-submit{
+    font-weight: bold;
+}
+
+#newItems {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+}
+
+#header-logo {
+    height: 60px;
+    margin-top: -14px;
+    border-radius: 3px;
+    margin-bottom: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.home-logo {
+    width: 100%;
+    border-radius: 8px;
+    margin-left: -60px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #383838;
+    border-color: #383838;
+}
+label.field-validation-error{
+    color:red;
+}
+
+.ingred-delete{
+    margin-top: 7px;
+}
+
+#footer-info{
+    margin-top:200px;
+}
+
+.homepage-info{
+    margin-top: 20px;
+}
+
+.homepage-section{
+    margin-bottom: 10px;
+}
+
+body {
+    counter-reset: counter;
+}
+
+.list {
+    display: table;
+}
+
+    .list:before {
+        display: table-cell;
+        counter-increment: counter;
+        content: counter(counter) '.';
+        padding-right: 5px;
+    }
+
+.recipe-name h3{
+    color: #343235;
+}
+
+.btn-primary a {
+    color: #C2E1DC;
+}
+
+.navbar-brand{
+    height: 75px;
+}
+
+#newPlanDiv {
+    display: block;
+}
+
+.recipe-add{
+    display: inline-block;
+}
+
+.edit-plan-submit{
+    margin-top: 40px;
+
+}
+
+.title{
+    font-weight: bold;
+}
+.meal-plan-list{
+    margin-left: 20px;
+    margin-top: 25px;
+}
+
+#submitNewPlan{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#addMealDay{
+    margin-bottom: 10px;
+}
+
+#addMealMeal{
+    margin-bottom:10px;
+}
+
+#addMealRecipe{
+    margin-bottom:15px;
+}
+.mealPlanDetailsContainer{
+    margin-left: 25px;
+    margin-top: -15px;
+}
+.plan-name {
+    color: #343235;
+}
+
+.meal-plan-recipe-name, .meal-plan-delete-button a {
+    color: #343235;
+}
+
+.btn delete-meal-from-plan a {
+    color: #343235;
+    font-weight: bold;
+}
+
+.plan-detail-name{
+   font-size: 18px;
+}

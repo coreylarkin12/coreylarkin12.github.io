@@ -1,0 +1,30 @@
+﻿@using Capstone.Models;
+
+
+@{
+    ViewBag.Title = "Grocery List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model List<MealPlan>
+
+<h2 class="title">Grocery List</h2>
+
+@foreach (MealPlan grocery in Model)
+{
+    if (Session["userID"] != null)
+    {
+        <div class="ind-recipe">
+            <div class="recipe-name">
+                <ul>
+                    <li>
+                        <p>@grocery.Amount @grocery.Ingredient x @grocery.Count</p>                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+    }
+}
+<input type="button" value="Print Grocery List" id ="printGroceryList" class="btn btn-default" onclick="window.print(); return false;" />
+
+

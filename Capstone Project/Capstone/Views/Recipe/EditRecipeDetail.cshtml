@@ -1,0 +1,68 @@
+﻿@using Capstone.Models;
+
+@model RecipeModel
+
+@{
+    ViewBag.Title = "Add Recipe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int num = Model.Ingredients.Count;
+}
+
+@Html.Hidden("test", Model.Ingredients.Count-1)
+
+<div class="row">
+
+    <h2 class="title">Edit Recipe</h2>
+
+</div>
+<div id="add-recipe-form">
+    @using (Html.BeginForm("EditRecipeDetails", "Recipe", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        <div class="form-group">
+            <div class="col-sm-10" id="add-recipe-name">
+                @Html.Label("Recipe Name: ")
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Recipe Name", maxlength = 100 })
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+            <div class="col-sm-10">
+                @Html.Label("Description: ")
+                @Html.TextBoxFor(m => m.Description, new { @class = "form-control", placeholder = "Description", maxlength = 1000 })
+                @Html.ValidationMessageFor(m => m.Description)
+            </div>
+            @Html.HiddenFor(m => m.Recipe_Id)
+        </div>
+        <div class="form-group">
+
+            <div id="newItems" class="form-group">
+                @for (int i = 0; i < num; i++)
+                {
+                    <div class="extra-ingred">
+                        <div id="items" class="col-sm-5 added-ingred">
+                            @Html.TextBoxFor(m => m.Ingredients[i], new { @class = "form-control", placeholder = "Ingredient", maxlength = 100 })
+                        </div>
+                        <div id="items" class="col-sm-5 added-ingred">
+                            @Html.TextBoxFor(m => m.Amount[i], new { @class = "form-control", placeholder = "Amount", maxlength = 100 })
+                            @Html.ValidationMessageFor(m => m.NumOfIngredients)
+                        </div>
+                        <button class="delete btn btn-default col-sm-1 ingred-delete">Delete</button>
+                    </div>
+                }
+            </div>
+
+            <button type="button" id="add" class="btn btn-default">Add Another Ingredient</button>
+
+        </div>
+
+
+
+        <div class="form-group" id="add-recipe-prep">
+            <div class="col-sm-10">
+                @Html.Label("Preparation: ")
+                @Html.TextAreaFor(m => m.Preparation, new { @class = "form-control", placeholder = "Preparation", maxlength = 5000 })
+                @Html.ValidationMessageFor(m => m.Preparation)
+                <br />
+                <button class="btn btn-default" id="add-recipe-submit">Edit</button>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Sign Up";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@model Capstone.Models.Register
+
+<div class="col-sm-6 signup-form">
+    <h2 class="title">Sign Up</h2>
+
+    @using (Html.BeginForm("SignUp", "Home", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email Address" })
+            @Html.ValidationMessageFor(m => m.Email)
+            @Html.ValidationMessage("invalid-user")
+        </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmEmail, "Confirm Email")
+                @Html.TextBoxFor(m => m.ConfirmEmail, new { @class = "form-control", placeholder = "Confirm Email" })
+                @Html.ValidationMessageFor(m => m.ConfirmEmail)
+                @Html.ValidationMessage("emails do not match")
+            </div>
+
+            <div name="password " id="password">
+
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                @Html.ValidationMessageFor(m => m.Password)
+                @Html.ValidationMessage("invalid-password")
+              
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword, "Confirm Password")
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                @Html.ValidationMessage("passwords do not match")
+            </div>
+
+
+            <button type="submit" class="btn btn-default">Submit</button>
+    }
+</div>

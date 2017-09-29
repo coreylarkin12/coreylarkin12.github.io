@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="@Url.Action("Index", "Home")">
+                    <img src="~/Content/Images/foxlogo.jpg" class="navbar-brand" />
+                </a>
+                @Html.ActionLink("Food Fox", "Index", "Home", new { area = "" }, new { @id = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                
+                <ul class="nav navbar-nav">
+                    @if (Session["userId"] != null)
+                    {
+                        <li>@Html.ActionLink("Add Recipe", "AddRecipe", "Recipe")</li>
+                    }
+
+                    <li>@Html.ActionLink("All Recipes", "DisplayRecipes", "Recipe")</li>
+
+                    @if (Session["userID"] != null)
+                    {
+                        <li>@Html.ActionLink("My Library", "UserLibrary", "Home")</li>
+                        <li>@Html.ActionLink("My Meal Plans", "DisplayPlans", "MealPlan")</li>
+                        <li>@Html.ActionLink("Log Out", "LogOut", "Home")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Sign Up", "SignUp", "Home")</li>
+                        <li>@Html.ActionLink("Log In", "LogIn", "Home")</li>
+                    }
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <div class="col-sm-12">
+                    @*<p id="footer-info">@Html.ActionLink("About", "About", "Home") - 
+                    @Html.ActionLink("Contact", "Contact", "Home") &copy; @DateTime.Now.Year Food Fox: Show me the food fox!</p>*@
+                </div>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+        <script src="~/Scripts/jquery.validate.js"></script>
+        <script src="~/Scripts/jquery-ingredientbutton.js"></script>
+        <script src="~/Scripts/client-validation.js"></script>
+        <script src="~/Scripts/jquery-addmealbutton.js"></script>
+        <script src="~/Scripts/buttonpress.js"></script>
+    </body>
+    </html>

@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Edit Plans";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using Capstone.Models;
+
+@model MealPlan
+
+<h2 class="title">Add Meal to Plan </h2>
+
+<div class="col-sm-11 edit-plan-form">
+    @using (Html.BeginForm("AddMealToPlan", "MealPlan", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.MealPlanId)
+      <div class="form-input-group" id="addMealDay">
+          @Html.Label("DayNumber", "Day of the Week")
+          <div class="day-number-container">
+              @Html.DropDownListFor(m => m.DayNumber, (IEnumerable<SelectListItem>)ViewBag.Days)
+          </div>
+      </div>
+    <div class="form-input-group" id="addMealMeal">
+        @Html.Label("MealNumber", "Meal Category")
+        <div class="day-number-container">
+            @Html.DropDownListFor(m => m.MealNumber, (IEnumerable<SelectListItem>)ViewBag.MealNumbers)
+        </div>
+    </div>
+    <div class="form-input-group" id="addMealRecipe">
+        @Html.Label("RecipeId", "Pick a Recipe")
+        <div class="day-number-container">
+            @Html.DropDownListFor(m => m.RecipeId, (IEnumerable<SelectListItem>)ViewBag.List)
+        </div>
+    </div>
+    <button class="btn btn-default" id="edit-plan-submit">Submit Changes</button>
+
+    }
+   
+</div>

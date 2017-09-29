@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Log In";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Capstone.Models.Login
+
+<div class="col-sm-4 login-form">
+    <h2 class="title">Log In</h2>
+    @if (Session["userID"] == null || int.Parse(Session["userID"].ToString()) == 0)
+    {
+        using (Html.BeginForm("Login", "Home", FormMethod.Post))
+        {
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email Address" })
+                @Html.ValidationMessageFor(m => m.Email)
+                @Html.ValidationMessage("invalid-user")
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                @Html.ValidationMessageFor(m => m.Password)
+                @Html.ValidationMessage("invalid-password")
+            </div>
+
+            <button type="submit" class="btn btn-default" id="login-button">Login</button>
+        }
+    }
+    else
+    {
+        <hidden>@Html.ActionLink("Log In", "LogIn", "Home")</hidden>
+    }
+</div>
+
+

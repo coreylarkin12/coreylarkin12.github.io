@@ -1,0 +1,52 @@
+﻿@using Capstone.Models;
+
+
+@{    ViewBag.Title = "Edit Plans";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@model List<MealPlan>
+
+<h2 class="title">My Meal Plans</h2>
+
+<div class="meal-plan-list">
+    @foreach (MealPlan myPlan in Model)
+    {
+        if (Session["userID"] != null)
+        {
+            <div class="ind-recipe">
+                <div class="recipe-name plan-detail-name">
+                    <a href="@Url.Action("PlanDetails", "MealPlan", new { id = myPlan.MealPlanId})">
+                        <p class="plan-name">@myPlan.PlanName</p>
+                    </a>
+                </div>
+                <div class="recipe-description">
+                    <strong> </strong>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+
+<br />
+
+<div class="col-xs-1">
+    <input type="button" value="Add Meal Plan" id="addMealPlan" class="btn btn-default" />
+    <input type="text" name="newMealPlan" id="newPlanName" class="hidden" />
+    <input type="button" value="Submit New Plan" id="submitNewPlan" class="btn btn-default hidden" />
+    <script>
+        var baseurl = '@Url.Action("AddPlan", "MealPlan")';
+        document.getElementById("submitNewPlan").addEventListener("click",
+            thisFunction);
+        function thisFunction() {
+            var url = baseurl + "/" + $("#newPlanName").val();
+            location.href = url;
+        };
+    </script>
+    <input type="button" value="Nevermind!" id="nevermind" class="btn btn-default hidden" />
+</div>
+
+

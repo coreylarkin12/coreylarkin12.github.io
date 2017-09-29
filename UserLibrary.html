@@ -1,0 +1,23 @@
+﻿@using Capstone.Models;
+
+@model List<RecipeModel>
+
+@{
+    ViewBag.Title = "User Recipes";
+}
+
+<h2 class="title">My Recipes</h2>
+
+@foreach (RecipeModel recipe in Model)
+{
+    <div class="ind-recipe">
+        <div class="recipe-name">
+            <a href="@Url.Action("RecipeDetail", "Recipe", new { id = @recipe.Recipe_Id})">
+                <h3>@recipe.Name</h3>
+            </a>
+        </div>
+        <div class="recipe-description">
+            <strong>Description: </strong>@recipe.Description
+        </div>
+    </div>
+}

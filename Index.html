@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8">
+        <img src="~/Content/Images/foxlogo1.jpg" class="home-logo"/>
+    </div>
+    <div class="col-xs-12 col-sm-3 homepage-info">
+        <div class="homepage-section">
+            <h2>Browse Recipes</h2>
+            <p>
+                Search countless recipes to find the perfect meal!
+            <p class = "btn btn-primary homePageLink">@Html.ActionLink("Learn More", "DisplayRecipes", "Recipe")</p>
+        </div>
+      
+    </div>
+
+
+
+
+
+
+</div>
